@@ -1,5 +1,4 @@
 <template>
-    <div class="container">
         <div class="row">
             <div class="col-md-3 justify-content-center">
                 <form @submit.prevent="addItem()">
@@ -9,21 +8,24 @@
                     <input type="text" id="username" v-model="item.username"></label><br>
                     <label for="email">Email<br>
                     <input type="email" id="email" v-model="item.email"></label><br>
-                    <button type="submit">Save</button>
+                    <button type="submit" class="btn btn-success">Save</button>
                 </form>
             </div>
             <div class="col-md-9">
                 <div class="card card-default">
                     <div class="card-header">{{msg}}</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li v-for="item in items" :key="item.id" class="list-group-item">{{ item.name }} | {{ item.email }}</li>
-                        </ul>
+                        <div class="list-group">
+
+                            <li v-if="items.length < 1" class="list-group-item">No data</li>
+                            
+                            <router-link v-else v-for="item in items" :key="item.id" class="list-group-item" :to="'/user/'+ item.id">{{ item.name }} | {{ item.email }}</router-link>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

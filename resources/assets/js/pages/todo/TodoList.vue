@@ -1,11 +1,10 @@
 <template>
-    <div class="container">
         <div class="row">
             <div class="col-md-3 justify-content-center">
                 <form @submit.prevent="addItem()">
                     <label for="title">Title<br>
-                    <input type="text" id="title" v-model="item.title"></label>
-                    <button type="submit">Save</button>
+                    <input type="text" id="title" v-model="item.title"></label><br>
+                    <button type="submit"  class="btn btn-success">Save</button>
                 </form>
             </div>
             <div class="col-md-9">
@@ -23,7 +22,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
